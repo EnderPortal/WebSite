@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { api } from "../utils/api";
 import { setToken } from "../utils/auth";
 
-export default function Register() {
+export default function Register({ onLogin }: { onLogin: () => void }) {
   //Object containing information for player registration
   const [formData, setFormData] = useState({
     email: "",
@@ -59,6 +59,8 @@ export default function Register() {
       toast.success("Compte créer avec succès !");
 
       setToken(response.data.access_token);
+
+      onLogin();
 
       console.log(response);
     } catch (error: any) {

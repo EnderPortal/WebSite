@@ -4,7 +4,7 @@ import { api } from "../utils/api";
 import toast from "react-hot-toast";
 import { setToken } from "../utils/auth";
 
-export default function App() {
+export default function Login({ onLogin }: { onLogin: () => void }) {
   //username and password
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -22,6 +22,8 @@ export default function App() {
       toast.success("Connexion effectué avec succèss !");
 
       setToken(response.data.access_token);
+
+      onLogin();
 
       console.log(response);
     } catch (error: any) {
