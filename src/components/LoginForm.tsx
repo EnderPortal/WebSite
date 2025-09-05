@@ -1,4 +1,5 @@
 import type { FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Object representing the props
@@ -64,12 +65,12 @@ export default function LoginForm({
       <div className="text-center pt-4 border-t border-gray-700">
         <p className="text-gray-400 text-sm">
           Pas encore de compte ?{" "}
-          <a
-            href=""
+          <Link
+            to="/register"
             className="text-ender-primary hover:text-ender-glow transition-colors font-medium"
           >
             S'inscrire
-          </a>
+          </Link>
         </p>
       </div>
     </form>

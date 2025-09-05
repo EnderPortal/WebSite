@@ -1,4 +1,5 @@
 import type { FormEvent } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Data present in the form
@@ -147,13 +148,13 @@ export default function RegisterForm({
 
       <div className="text-center pt-4 border-t border-gray-700">
         <p className="text-gray-400 text-sm">
-          Déjà un compte ?{" "}
-          <a
-            href=""
+          Déjà un compte ?
+          <Link
+            to="/login"
             className="text-ender-primary hover:text-ender-glow transition-colors font-medium"
           >
             Se connecter
-          </a>
+          </Link>
         </p>
       </div>
     </form>

@@ -1,6 +1,13 @@
-import { BrowserRouter as Router } from "react-router-dom";
+import {
+  Navigate,
+  Route,
+  BrowserRouter as Router,
+  Routes,
+} from "react-router-dom";
 import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
+import Login from "./pages/Login";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -18,7 +25,23 @@ function App() {
           }}
         />
 
-        <Register />
+        <main>
+          <Routes>
+            {/**Register route */}
+            <Route path="/register" element={<Register />}></Route>
+
+            {/**Login route */}
+            <Route path="/login" element={<Login />}></Route>
+
+            {/**Home router */}
+            <Route path="/" element={<Home />}></Route>
+
+            {/**Route par default */}
+            {/**TODO : il faudra penser à check si l'utiliser est authentificated ou pas */}
+
+            {/** penser à la route * pour le not found */}
+          </Routes>
+        </main>
       </div>
     </Router>
   );
