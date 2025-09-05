@@ -1,6 +1,8 @@
 import { useState, type FormEvent } from "react";
 import RegisterForm from "../components/RegisterForm";
 import toast from "react-hot-toast";
+import { api } from "../utils/api";
+import { setToken } from "../utils/auth";
 
 export default function Register() {
   //Object containing information for player registration
@@ -13,7 +15,7 @@ export default function Register() {
   });
 
   //Send data in server
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
     /**
@@ -48,8 +50,24 @@ export default function Register() {
       return;
     }
 
-    toast.success("Compte créer avec succès !");
-    console.log(formData);
+    try {
+      const response = await api.post("/auth/register", {
+        username: formData.username,
+        password: formData.password,
+      });
+
+      toast.success("Compte créer avec succès !");
+
+      setToken(response.data.access_token);
+
+      console.log(response);
+    } catch (error: any) {
+      console.error(error);
+
+      toast.error(
+        error.response?.data?.message || "Erreur lors de l'inscription"
+      );
+    }
   };
 
   return (

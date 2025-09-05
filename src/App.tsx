@@ -7,7 +7,7 @@ import {
 import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
-import Home from "./components/Home";
+import Home from "./pages/Home";
 
 function App() {
   return (

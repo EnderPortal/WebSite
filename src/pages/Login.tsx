@@ -1,5 +1,8 @@
 import { useState, type FormEvent } from "react";
 import LoginForm from "../components/LoginForm";
+import { api } from "../utils/api";
+import toast from "react-hot-toast";
+import { setToken } from "../utils/auth";
 
 export default function App() {
   //username and password
@@ -9,7 +12,25 @@ export default function App() {
   //When client submit form
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    console.log(`Data: user: ${username} , pwd : ${password}`);
+
+    try {
+      const response = await api.post("/auth/login", {
+        username: username,
+        password: password,
+      });
+
+      toast.success("Connexion effectué avec succèss !");
+
+      setToken(response.data.access_token);
+
+      console.log(response);
+    } catch (error: any) {
+      console.error(error);
+
+      toast.error(
+        error.response?.data?.message || "Erreur lors de l'inscription"
+      );
+    }
   };
 
   return (
