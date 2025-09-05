@@ -1,6 +1,11 @@
+import { BrowserRouter as Router} from 'react-router-dom';
+
 function App() {
   return (
-    <h1>Hello World</h1>    
+    <Router>
+      <div className="min-h-screen bg-ender-dark bg-minecraft-texture">
+      </div>
+    </Router>
   )
 }
 
