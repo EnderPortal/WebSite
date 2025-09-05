@@ -12,6 +12,10 @@ type LoginFormProps = {
   handleSubmit: (e: FormEvent) => void;
 };
 
+/**
+ * Component to login
+ * form for players
+ */
 export default function LoginForm({
   username,
   password,
@@ -34,6 +38,7 @@ export default function LoginForm({
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Votre pseudo Minecraft"
           className="w-full px-4 py-3 bg-ender-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-ender-primary focus:ring-2 focus:ring-ender-primary/20 transition-all duration-300"
+          required
         />
       </div>
 
@@ -48,6 +53,7 @@ export default function LoginForm({
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Mot de passe"
           className="w-full px-4 py-3 bg-ender-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-ender-primary focus:ring-2 focus:ring-ender-primary/20 transition-all duration-300"
+          required
         />
       </div>
 
