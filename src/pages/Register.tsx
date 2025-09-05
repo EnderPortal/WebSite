@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import RegisterForm from "../components/RegisterForm";
+import toast from "react-hot-toast";
 
 export default function Register() {
   //Object containing information for player registration
@@ -19,7 +20,7 @@ export default function Register() {
      * Verification of the 2 passwords
      */
     if (formData.password !== formData.confirmPassword) {
-      alert("Les 2 mots de passe ne correspond pas");
+      toast.error("Les 2 mots de passe ne correspond pas");
       return;
     }
 
@@ -27,7 +28,7 @@ export default function Register() {
      * did the player accept the terms?
      */
     if (!formData.accepteTerms) {
-      alert("Veuillez accepter les conditions d'utilisations");
+      toast.error("Veuillez accepter les conditions d'utilisations");
       return;
     }
 
@@ -35,7 +36,7 @@ export default function Register() {
      * Password length (need to be >=5)
      */
     if (formData.password.length < 5) {
-      alert("Le mot de passe doit contenir au moins 5 caracètres");
+      toast.error("Le mot de passe doit contenir au moins 5 caracètres");
       return;
     }
 
@@ -43,11 +44,11 @@ export default function Register() {
      * Pseudo length
      */
     if (formData.username.length < 3 || formData.username.length > 16) {
-      alert("Votre pseudo doit être compris entre 3 et 16 caractères");
+      toast.error("Votre pseudo doit être compris entre 3 et 16 caractères");
       return;
     }
 
-    alert("OK GG !");
+    toast.success("Compte créer avec succès !");
     console.log(formData);
   };
 

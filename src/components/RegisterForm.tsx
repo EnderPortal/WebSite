@@ -50,6 +50,7 @@ export default function RegisterForm({
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
           placeholder="Votre address email"
           className="w-full px-4 py-3 bg-ender-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-ender-primary focus:ring-2 focus:ring-ender-primary/20 transition-all duration-300"
+          required
         />
       </div>
 
@@ -66,6 +67,7 @@ export default function RegisterForm({
           }
           placeholder="Votre pseudo Minecraft"
           className="w-full px-4 py-3 bg-ender-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-ender-primary focus:ring-2 focus:ring-ender-primary/20 transition-all duration-300"
+          required
         />
 
         <p className="text-xs text-gray-400 mt-1">
@@ -87,6 +89,7 @@ export default function RegisterForm({
           }
           placeholder="Mot de passe"
           className="w-full px-4 py-3 bg-ender-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-ender-primary focus:ring-2 focus:ring-ender-primary/20 transition-all duration-300"
+          required
         />
       </div>
 
@@ -103,6 +106,7 @@ export default function RegisterForm({
           }
           placeholder="Mot de passe"
           className="w-full px-4 py-3 bg-ender-dark border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:border-ender-primary focus:ring-2 focus:ring-ender-primary/20 transition-all duration-300"
+          required
         />
       </div>
 
