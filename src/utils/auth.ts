@@ -10,7 +10,7 @@ export function setToken(access_token: string) {
  * retrieve the access token from local storage
  * @returns access_token => string format
  */
-export function getToken() {
+export function getToken(): string | null {
   return localStorage.getItem("token");
 }
 
@@ -20,7 +20,7 @@ export function getToken() {
  *
  * @returns True if is authenticated
  */
-export function isAuthenticated() {
+export function isAuthenticated(): boolean {
   return !!getToken();
 }
 
