@@ -8,6 +8,7 @@ import Register from "./pages/Register";
 import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -34,7 +35,14 @@ function App() {
             <Route path="/login" element={<Login />}></Route>
 
             {/**Home router */}
-            <Route path="/" element={<Home />}></Route>
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <Home></Home>
+                </PrivateRoute>
+              }
+            ></Route>
 
             {/**Route par default */}
             {/**TODO : il faudra penser à check si l'utiliser est authentificated ou pas */}
