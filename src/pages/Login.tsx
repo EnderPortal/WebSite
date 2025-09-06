@@ -14,18 +14,21 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
     e.preventDefault();
 
     try {
+      //Call login
       const response = await api.post("/auth/login", {
         username: username,
         password: password,
       });
 
-      toast.success("Connexion effectué avec succèss !");
-
       setToken(response.data.access_token);
 
-      onLogin();
+      //Call user profile
+      const userReponse = await api.get("/users/user");
+      console.log(userReponse.data);
 
-      console.log(response);
+      //Update and feedback
+      onLogin();
+      toast.success("Connexion effectué avec succèss !");
     } catch (error: any) {
       console.error(error);
 
