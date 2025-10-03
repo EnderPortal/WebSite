@@ -9,6 +9,7 @@ import { Toaster } from "react-hot-toast";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import { useState } from "react";
+import { UserContextProvider } from "./hooks/useUser";
 
 function App() {
   //Sets whether the user is logged in or not
@@ -19,7 +20,8 @@ function App() {
   };
 
   return (
-    <Router>
+    <UserContextProvider>
+      <Router>
       <div className="min-h-screen bg-ender-dark bg-minecraft-texture">
         {/**Feedback for clients */}
         <Toaster
@@ -72,6 +74,7 @@ function App() {
         </main>
       </div>
     </Router>
+    </UserContextProvider>
   );
 }
 

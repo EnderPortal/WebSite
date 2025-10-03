@@ -3,11 +3,15 @@ import LoginForm from "../components/LoginForm";
 import { api } from "../utils/api";
 import toast from "react-hot-toast";
 import { setToken } from "../utils/auth";
+import { useUser } from "../hooks/useUser";
 
 export default function Login({ onLogin }: { onLogin: () => void }) {
   //username and password
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  //Call user context to set new user value
+  const {setUser} = useUser();
 
   //When client submit form
   const handleSubmit = async (e: FormEvent) => {
@@ -24,7 +28,7 @@ export default function Login({ onLogin }: { onLogin: () => void }) {
 
       //Call user profile
       const userReponse = await api.get("/users/user");
-      console.log(userReponse.data);
+      setUser(userReponse.data);
 
       //Update and feedback
       onLogin();

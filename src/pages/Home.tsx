@@ -1,3 +1,7 @@
+import { useUser } from "../hooks/useUser";
+
 export default function Home() {
-  return <h1>Home page</h1>;
+  const {user} = useUser();
+
+  return <h1>Salut ! {user?.username}</h1>
 }
